@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Grammar for Assignment Statements</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: "Segoe UI", Arial, sans-serif;
+            background: linear-gradient(120deg, #89f7fe, #66a6ff, #fbc2eb);
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .box {
+            background: white;
+            width: 460px;
+            padding: 35px;
+            border-radius: 18px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            text-align: center;
+            animation: slideIn 0.8s ease;
+        }
+
+        @keyframes slideIn {
+            from { transform: translateY(40px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        h2 {
+            color: #512da8;
+            margin-bottom: 5px;
+            font-size: 28px;
+        }
+
+        h3 {
+            color: #555;
+            margin-top: 0;
+        }
+
+        label {
+            font-weight: bold;
+            font-size: 16px;
+            color: #333;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 14px;
+            margin-top: 12px;
+            font-size: 16px;
+            border-radius: 8px;
+            border: 2px solid #b39ddb;
+            transition: 0.3s;
+        }
+
+        input[type="text"]:focus {
+            outline: none;
+            border-color: #673ab7;
+            box-shadow: 0 0 10px rgba(103,58,183,0.6);
+        }
+
+        button {
+            width: 100%;
+            margin-top: 22px;
+            padding: 14px;
+            font-size: 17px;
+            font-weight: bold;
+            color: white;
+            background: linear-gradient(90deg, #ff416c, #ff4b2b, #7f00ff);
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            letter-spacing: 1px;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 12px 25px rgba(0,0,0,0.3);
+        }
+
+        .result {
+            margin-top: 25px;
+            padding: 16px;
+            font-size: 20px;
+            font-weight: bold;
+            border-radius: 10px;
+            animation: pop 0.5s ease;
+        }
+
+        @keyframes pop {
+            from { transform: scale(0.7); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        .valid {
+            background: linear-gradient(90deg, #00e676, #b9f6ca);
+            color: #1b5e20;
+        }
+
+        .invalid {
+            background: linear-gradient(90deg, #ff1744, #ff8a80);
+            color: #b71c1c;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="box">
+    <h2>SSCD Mini Project</h2>
+    <h3>Grammar for Assignment Statements</h3>
+
+    <form method="post">
+        <label>Enter Assignment Statement</label>
+        <input type="text" name="statement" placeholder="a=b+5" required>
+        <button type="submit">CHECK</button>
+    </form>
+
+    {% if result %}
+        <div class="result {{ 'valid' if 'Valid' in result else 'invalid' }}">
+            {{ result }}
+        </div>
+    {% endif %}
+</div>
+
+</body>
+</html>
